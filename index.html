@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit 72h · Lo que necesitas para aguantar 3 días sin servicios</title>
+<meta name="description" content="Lista práctica del kit de emergencia de 72 horas: agua, luz, radio, botiquín y más. Calculadora para tu hogar y checklist para saber qué te falta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1b1d1f; --muted:#5f646b; --line:#e3dfd6;
+  --accent:#e8590c; --accent-ink:#ffffff; --accent-soft:#fff1e6;
+  --must:#c92a2a; --rec:#e8590c; --extra:#5f646b; --ok:#2b8a3e;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Archivo,Inter,sans-serif;line-height:1.15;margin:0}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:10;background:rgba(246,244,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:Archivo;font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+.logo b{color:var(--accent)}
+.top nav a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:18px}
+.top nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:56px 0 36px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:99px;margin-bottom:16px}
+.hero h1{font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-.03em;max-width:15ch}
+.hero h1 span{color:var(--accent)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:60ch;margin:18px 0 26px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:640px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.stat .n{font-family:Archivo;font-weight:800;font-size:28px;letter-spacing:-.02em}
+.stat .l{font-size:13px;color:var(--muted)}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px}
+.cta:hover{background:#000}
+
+/* sections */
+section{padding:36px 0}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:28px;letter-spacing:-.02em}
+.sec-h p{margin:6px 0 0;color:var(--muted);font-size:15px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.field{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.field:last-child{border-bottom:0}
+.field label{font-weight:500}
+.field small{display:block;color:var(--muted);font-size:12px}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper button{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:#fff;font-size:18px;cursor:pointer}
+.stepper button:hover{border-color:var(--ink)}
+.stepper output{min-width:28px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-content:start}
+.res{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.res .k{font-size:13px;color:var(--muted)}
+.res .v{font-family:Archivo;font-weight:800;font-size:30px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:2px 0}
+.res .d{font-size:13px;color:var(--muted)}
+.res a{font-size:13px;font-weight:600;color:var(--accent);text-decoration:none}
+.res a:hover{text-decoration:underline}
+
+/* progress + filters */
+.progress{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.bar{flex:1;min-width:200px;height:10px;background:#eee9df;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .3s}
+.progress .txt{font-size:14px;color:var(--muted)}
+.progress .txt b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:7px 13px;font-size:14px;cursor:pointer;font-family:inherit;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prio-filter{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:20px}
+.prio-filter label{display:flex;align-items:center;gap:6px;cursor:pointer}
+
+/* products */
+.cat{margin-bottom:28px}
+.cat h3{font-size:20px;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cat h3 .em{font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,opacity .15s}
+.item:hover{border-color:#cfc9bc}
+.item.have{opacity:.6}
+.item .row{display:flex;justify-content:space-between;align-items:start;gap:8px}
+.item h4{margin:0;font-size:16px;font-weight:600;line-height:1.3}
+.tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:3px 7px;border-radius:6px;white-space:nowrap}
+.tag.must{color:var(--must);background:#fdecec}
+.tag.rec{color:var(--rec);background:var(--accent-soft)}
+.tag.extra{color:var(--extra);background:#efede8}
+.item p{margin:0;font-size:14px;color:var(--muted);flex:1}
+.item .act{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:4px}
+.have-toggle{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none}
+.have-toggle input{width:16px;height:16px;accent-color:var(--ok)}
+.buy{background:var(--accent);color:var(--accent-ink);text-decoration:none;font-size:14px;font-weight:600;padding:8px 12px;border-radius:9px;white-space:nowrap}
+.buy:hover{filter:brightness(.93)}
+
+/* tips */
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tip{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.tip h3{font-size:16px;margin-bottom:6px}
+.tip p{margin:0;font-size:14px;color:var(--muted)}
+
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);font-size:15px;margin:10px 0 0}
+
+footer{border-top:1px solid var(--line);padding:28px 0 48px;margin-top:20px;font-size:13px;color:var(--muted)}
+footer p{margin:6px 0;max-width:80ch}
+.empty{color:var(--muted);font-size:15px;padding:20px 0}
+
+@media (max-width:760px){
+  .calc{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stat .n{font-size:22px}
+  .top nav a:not(:last-child){display:none}
+  .hero{padding:36px 0 24px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio">Kit<b>72</b>h</a>
+    <nav>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#lista">La lista</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <span class="eyebrow">Recomendación UE · 72 horas de autonomía</span>
+    <h1>Tu kit para aguantar <span>3 días</span> sin luz, agua ni cobertura.</h1>
+    <p class="lead">La Comisión Europea y Protección Civil recomiendan que cada hogar pueda ser autosuficiente durante 72 horas. Aquí tienes la lista ordenada por prioridad, una calculadora para tu casa y un checklist para saber qué te falta.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">72 h</div><div class="l">de autonomía</div></div>
+      <div class="stat"><div class="n">3 L</div><div class="l">agua / persona / día</div></div>
+      <div class="stat"><div class="n" id="statItems">—</div><div class="l">artículos en la lista</div></div>
+    </div>
+    <a class="cta" href="#calculadora">Calcula tu kit →</a>
+  </div>
+
+  <!-- Calculadora -->
+  <section id="calculadora">
+    <div class="wrap">
+      <div class="sec-h">
+        <div>
+          <h2>¿Cuánto necesita tu casa?</h2>
+          <p>Ajusta los valores y te decimos cantidades concretas.</p>
+        </div>
+      </div>
+      <div class="calc">
+        <div class="panel">
+          <div class="field"><label>Adultos</label><div class="stepper" data-k="adultos"><button aria-label="menos">−</button><output>2</output><button aria-label="más">+</button></div></div>
+          <div class="field"><label>Niños<small>menores de 12</small></label><div class="stepper" data-k="ninos"><button aria-label="menos">−</button><output>0</output><button aria-label="más">+</button></div></div>
+          <div class="field"><label>Mascotas</label><div class="stepper" data-k="mascotas"><button aria-label="menos">−</button><output>0</output><button aria-label="más">+</button></div></div>
+          <div class="field"><label>Días<small>la UE recomienda 3</small></label><div class="stepper" data-k="dias"><button aria-label="menos">−</button><output>3</output><button aria-label="más">+</button></div></div>
+          <div class="field"><label>Móviles a cargar</label><div class="stepper" data-k="moviles"><button aria-label="menos">−</button><output>2</output><button aria-label="más">+</button></div></div>
+        </div>
+        <div class="results" id="results"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista -->
+  <section id="lista">
+    <div class="wrap">
+      <div class="sec-h">
+        <div>
+          <h2>La lista completa</h2>
+          <p>Marca lo que ya tienes. Se guarda en este navegador.</p>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="bar"><i id="barFill"></i></div>
+        <div class="txt" id="progressTxt"></div>
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="prio-filter">
+        <label><input type="checkbox" data-p="must" checked> Imprescindible</label>
+        <label><input type="checkbox" data-p="rec" checked> Recomendable</label>
+        <label><input type="checkbox" data-p="extra" checked> Extra</label>
+        <label><input type="checkbox" id="hideHave"> Ocultar lo que ya tengo</label>
+      </div>
+
+      <div id="catalog"></div>
+    </div>
+  </section>
+
+  <!-- Consejos -->
+  <section>
+    <div class="wrap">
+      <div class="sec-h"><div><h2>Lo que no se compra</h2><p>Igual de importante que el material.</p></div></div>
+      <div class="tips">
+        <div class="tip"><h3>💶 Efectivo</h3><p>Si cae la red, no funcionan datáfonos ni cajeros. Guarda algo de dinero en billetes pequeños.</p></div>
+        <div class="tip"><h3>📄 Copias de documentos</h3><p>DNI, tarjeta sanitaria, seguros y escrituras, en papel dentro de una funda estanca y también en un USB.</p></div>
+        <div class="tip"><h3>💊 Tu medicación</h3><p>Reserva para varios días de cualquier tratamiento que tomes y una lista escrita de dosis.</p></div>
+        <div class="tip"><h3>📞 Plan familiar</h3><p>Un punto de encuentro y teléfonos clave apuntados en papel. Sin batería no vas a recordar ningún número.</p></div>
+        <div class="tip"><h3>🕯️ Mejor linterna que velas</h3><p>Protección Civil desaconseja las velas por el riesgo de incendio. Usa luz LED.</p></div>
+        <div class="tip"><h3>🔄 Revisión anual</h3><p>Pon una fecha fija para revisar caducidades del agua, la comida, los medicamentos y las pilas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-h"><div><h2>Preguntas frecuentes</h2></div></div>
+      <details><summary>¿Por qué 72 horas?</summary><p>Es el periodo que la Unión Europea, en su estrategia de preparación de marzo de 2025, considera razonable para que un hogar se mantenga por sí mismo mientras los servicios de emergencia se organizan. Protección Civil lo ha incorporado a sus campañas.</p></details>
+      <details><summary>¿Tengo que comprarlo todo?</summary><p>No. Empieza por los artículos marcados como <b>imprescindibles</b>: agua, luz, radio, batería, botiquín y documentos. Muchos ya los tendrás en casa: márcalos en la lista.</p></details>
+      <details><summary>¿Qué hago en una emergencia: me quedo o me voy?</summary><p>La medida habitual de autoprotección es quedarse en casa (confinamiento). Sal solo si las autoridades lo indican; para eso sirve tener la mochila preparada en la entrada.</p></details>
+      <details><summary>¿Dónde guardo el kit?</summary><p>En un sitio fresco, seco y accesible, cerca de la puerta. Que todos en casa sepan dónde está.</p></details>
+      <details><summary>¿Cómo me entero de lo que pasa si no hay internet?</summary><p>Con una radio a pilas o de manivela. Durante un apagón la radio FM/AM es el canal por el que llegan las indicaciones oficiales. Además, deja activadas las alertas de Protección Civil en el móvil.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</b> Comprar a través de estos enlaces no te cuesta más y ayuda a mantener esta web.</p>
+    <p>Esta web es informativa y no está vinculada a Protección Civil ni a ninguna administración. Para instrucciones oficiales en una emergencia, sigue siempre a las autoridades y llama al 112.</p>
+    <p>© <span id="yr"></span> Kit72h</p>
+  </div>
+</footer>
+
+<script>
+const TAG = "14140b-21";
+const amz = q => "https://www.amazon.es/s?k=" + encodeURIComponent(q) + "&tag=" + TAG;
+
+const CATS = [
+  {id:"agua", em:"💧", name:"Agua"},
+  {id:"comida", em:"🥫", name:"Comida"},
+  {id:"luz", em:"🔦", name:"Luz y energía"},
+  {id:"com", em:"📻", name:"Comunicación"},
+  {id:"salud", em:"🩹", name:"Botiquín y salud"},
+  {id:"herr", em:"🛠️", name:"Herramientas"},
+  {id:"hig", em:"🧼", name:"Higiene"},
+  {id:"doc", em:"📁", name:"Documentos"},
+  {id:"mochila", em:"🎒", name:"Mochila"},
+  {id:"fam", em:"🐾", name:"Bebés y mascotas"}
+];
+
+// p: must | rec | extra
+const ITEMS = [
+  {c:"agua", n:"Bidón de agua plegable con grifo", p:"must", d:"Para almacenar agua de reserva. Plegado ocupa poco; con grifo es fácil de usar.", q:"bidon agua plegable grifo 10 litros"},
+  {c:"agua", n:"Pastillas potabilizadoras", p:"must", d:"Hacen potable el agua dudosa. Ligeras, baratas y duran años.", q:"pastillas potabilizadoras agua"},
+  {c:"agua", n:"Filtro de agua portátil tipo pajita", p:"rec", d:"Filtra bacterias y parásitos al beber directamente. Ideal para la mochila.", q:"filtro agua portatil pajita"},
+
+  {c:"comida", n:"Raciones de emergencia de larga duración", p:"rec", d:"Bloques calóricos que aguantan años sin caducar. Sin cocinar.", q:"racion emergencia larga duracion"},
+  {c:"comida", n:"Abrelatas manual", p:"must", d:"Las conservas no sirven de nada sin él. El eléctrico no funciona sin luz.", q:"abrelatas manual"},
+  {c:"comida", n:"Hornillo de gas de camping", p:"rec", d:"Para calentar comida y agua sin vitrocerámica. Úsalo siempre con ventilación.", q:"hornillo gas camping"},
+  {c:"comida", n:"Barritas energéticas", p:"rec", d:"Energía rápida, no necesitan preparación y caben en cualquier bolsillo.", q:"barritas energeticas pack"},
+
+  {c:"luz", n:"Linterna frontal LED", p:"must", d:"Manos libres para moverte por casa o cocinar a oscuras.", q:"linterna frontal led recargable"},
+  {c:"luz", n:"Batería externa de 20.000 mAh o más", p:"must", d:"Mantiene el móvil vivo varios días. Tenla siempre cargada.", q:"bateria externa 20000 mah"},
+  {c:"luz", n:"Pilas AA y AAA", p:"must", d:"Para radio, linternas y farolillos. Mejor alcalinas o de litio para almacenar.", q:"pilas alcalinas aa aaa pack"},
+  {c:"luz", n:"Farolillo LED", p:"rec", d:"Ilumina toda una habitación. Mucho más seguro que las velas.", q:"farol led camping pilas"},
+  {c:"luz", n:"Linterna de dinamo", p:"rec", d:"Funciona dándole a la manivela. Nunca te quedas sin luz.", q:"linterna dinamo manivela"},
+  {c:"luz", n:"Estación de energía portátil", p:"extra", d:"Batería grande con enchufes: nevera pequeña, router, CPAP… Para quien quiere ir en serio.", q:"estacion energia portatil"},
+  {c:"luz", n:"Panel solar plegable USB", p:"extra", d:"Recarga baterías y móviles si el corte se alarga.", q:"panel solar plegable usb"},
+
+  {c:"com", n:"Radio de emergencia con manivela y solar", p:"must", d:"El canal por el que llegan las instrucciones oficiales cuando no hay internet. Muchas cargan el móvil.", q:"radio emergencia manivela solar"},
+  {c:"com", n:"Silbato de emergencia", p:"rec", d:"Se oye mucho más lejos que la voz y no cansa.", q:"silbato emergencia"},
+  {c:"com", n:"Walkie-talkies PMR446", p:"extra", d:"Sin licencia y sin red móvil. Útiles para coordinarse en familia o con vecinos.", q:"walkie talkie pmr446"},
+
+  {c:"salud", n:"Botiquín de primeros auxilios", p:"must", d:"Vendas, gasas, apósitos, antiséptico, tijeras y guantes.", q:"botiquin primeros auxilios completo"},
+  {c:"salud", n:"Mantas térmicas", p:"must", d:"Pesan casi nada y evitan la hipotermia. Pon una por persona.", q:"manta termica emergencia"},
+  {c:"salud", n:"Mascarillas FFP2", p:"rec", d:"Para humo, polvo o situaciones de contagio.", q:"mascarillas ffp2"},
+  {c:"salud", n:"Pastillero semanal", p:"rec", d:"Para llevar organizada la medicación de varios días.", q:"pastillero semanal"},
+  {c:"salud", n:"Termómetro digital", p:"extra", d:"Básico para vigilar fiebre si no puedes ir al médico.", q:"termometro digital"},
+
+  {c:"herr", n:"Multiherramienta", p:"rec", d:"Alicates, cuchillo, destornilladores y abrelatas en una sola pieza.", q:"multiherramienta"},
+  {c:"herr", n:"Cinta americana", p:"rec", d:"Repara, sella y sujeta casi cualquier cosa.", q:"cinta americana"},
+  {c:"herr", n:"Mechero antiviento", p:"rec", d:"Para encender el hornillo o hacer fuego con viento o humedad.", q:"mechero antiviento recargable"},
+  {c:"herr", n:"Cuerda paracord", p:"extra", d:"Resistente y versátil: tender, atar, montar un refugio.", q:"cuerda paracord"},
+  {c:"herr", n:"Guantes de trabajo", p:"extra", d:"Protegen las manos al retirar escombros o cristales.", q:"guantes trabajo resistentes"},
+
+  {c:"hig", n:"Toallitas húmedas", p:"must", d:"Higiene personal sin agua corriente.", q:"toallitas humedas pack"},
+  {c:"hig", n:"Gel hidroalcohólico", p:"rec", d:"Manos limpias antes de comer o curar una herida.", q:"gel hidroalcoholico"},
+  {c:"hig", n:"Bolsas de basura resistentes", p:"rec", d:"Para residuos, impermeabilizar o improvisar un poncho.", q:"bolsas basura resistentes"},
+  {c:"hig", n:"Bolsas para WC de emergencia", p:"extra", d:"Si no hay agua para la cisterna, son la diferencia entre incómodo e insalubre.", q:"bolsas wc emergencia gelificante"},
+
+  {c:"doc", n:"Funda impermeable para documentos", p:"must", d:"Copias del DNI, tarjeta sanitaria y seguros, protegidas del agua.", q:"funda impermeable documentos"},
+  {c:"doc", n:"Bolsa estanca", p:"rec", d:"Para el móvil, la batería y el efectivo si hay lluvia o inundación.", q:"bolsa estanca"},
+
+  {c:"mochila", n:"Mochila de 30–40 litros", p:"must", d:"Todo el kit listo en la entrada por si toca salir de casa.", q:"mochila 40 litros senderismo"},
+  {c:"mochila", n:"Kit de supervivencia ya montado", p:"extra", d:"Atajo si no quieres comprar pieza por pieza. Revisa qué trae y complétalo.", q:"kit supervivencia emergencia 72 horas"},
+
+  {c:"fam", n:"Comedero y bebedero plegables", p:"rec", d:"Para que tu mascota coma y beba fuera de casa.", q:"comedero plegable perro"},
+  {c:"fam", n:"Cambiador portátil para bebé", p:"rec", d:"Junto con pañales y comida infantil para varios días.", q:"cambiador portatil bebe"}
+];
+
+/* ---------- storage (seguro) ---------- */
+const store = {
+  get(k, def){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }catch(e){ return def; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+let have = new Set(store.get("kit72_have", []));
+const calcState = Object.assign({adultos:2, ninos:0, mascotas:0, dias:3, moviles:2}, store.get("kit72_calc", {}));
+
+/* ---------- calculadora ---------- */
+const LIMITS = {adultos:[1,12], ninos:[0,10], mascotas:[0,6], dias:[1,14], moviles:[0,12]};
+const fmt = (n, d=0) => n.toLocaleString("es-ES", {maximumFractionDigits:d, minimumFractionDigits:d});
+
+function renderCalc(){
+  const s = calcState, personas = s.adultos + s.ninos;
+  const agua = personas * 3 * s.dias + s.mascotas * 1 * s.dias;       // 3 L/persona/día; ~1 L/mascota/día
+  const bebida = personas * 1.5 * s.dias;
+  const kcal = (s.adultos * 2000 + s.ninos * 1400) * s.dias;
+  const whNeeded = s.moviles * 15 * s.dias;                            // ~15 Wh por carga completa al día
+  const mah = Math.ceil((whNeeded / 3.7 * 1000) / 0.65 / 5000) * 5000; // 65 % eficiencia real
+  const garrafas = Math.ceil(agua / 8);
+  const pilas = Math.max(8, Math.ceil(s.dias * 4 / 4) * 4);
+
+  document.querySelectorAll(".stepper").forEach(st => st.querySelector("output").textContent = s[st.dataset.k]);
+  document.getElementById("results").innerHTML = `
+    <div class="res"><div class="k">Agua total</div><div class="v">${fmt(agua)} L</div>
+      <div class="d">${fmt(bebida,1)} L solo para beber · ≈ ${garrafas} garrafas de 8 L</div>
+      <a href="${amz("bidon agua plegable grifo 10 litros")}" target="_blank" rel="sponsored nofollow noopener">Ver bidones →</a></div>
+    <div class="res"><div class="k">Calorías</div><div class="v">${fmt(kcal/1000,1)}k</div>
+      <div class="d">kcal para ${s.dias} días · conservas, legumbres cocidas, frutos secos</div>
+      <a href="${amz("racion emergencia larga duracion")}" target="_blank" rel="sponsored nofollow noopener">Ver raciones →</a></div>
+    <div class="res"><div class="k">Batería externa</div><div class="v">${s.moviles ? fmt(mah) : "—"}</div>
+      <div class="d">${s.moviles ? `mAh para ${s.moviles} móvil${s.moviles>1?"es":""} × ${s.dias} días (≈ ${fmt(whNeeded)} Wh útiles)` : "Sin móviles que cargar"}</div>
+      <a href="${amz("bateria externa " + (mah >= 40000 ? "estacion energia portatil" : mah + " mah"))}" target="_blank" rel="sponsored nofollow noopener">Ver baterías →</a></div>
+    <div class="res"><div class="k">Pilas de repuesto</div><div class="v">${pilas}</div>
+      <div class="d">AA/AAA para radio y linternas</div>
+      <a href="${amz("pilas alcalinas aa aaa pack")}" target="_blank" rel="sponsored nofollow noopener">Ver pilas →</a></div>
+    <div class="res"><div class="k">Mantas térmicas</div><div class="v">${personas}</div>
+      <div class="d">una por persona</div>
+      <a href="${amz("manta termica emergencia")}" target="_blank" rel="sponsored nofollow noopener">Ver mantas →</a></div>
+  `;
+  store.set("kit72_calc", s);
+}
+document.querySelectorAll(".stepper").forEach(st => {
+  const k = st.dataset.k, [lo, hi] = LIMITS[k], [minus, , plus] = st.children;
+  minus.onclick = () => { calcState[k] = Math.max(lo, calcState[k] - 1); renderCalc(); };
+  plus.onclick  = () => { calcState[k] = Math.min(hi, calcState[k] + 1); renderCalc(); };
+});
+
+/* ---------- catálogo ---------- */
+let activeCat = "all";
+const PLABEL = {must:"Imprescindible", rec:"Recomendable", extra:"Extra"};
+const keyOf = it => it.c + ":" + it.n;
+
+function renderChips(){
+  const all = [{id:"all", em:"", name:"Todo"}, ...CATS];
+  document.getElementById("chips").innerHTML = all.map(c =>
+    `<button class="chip" data-cat="${c.id}" aria-pressed="${c.id===activeCat}">${c.em ? c.em+" " : ""}${c.name}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(b => b.onclick = () => { activeCat = b.dataset.cat; renderChips(); renderCatalog(); });
+}
+
+function renderCatalog(){
+  const prios = [...document.querySelectorAll("[data-p]")].filter(x => x.checked).map(x => x.dataset.p);
+  const hideHave = document.getElementById("hideHave").checked;
+  const html = CATS.filter(c => activeCat === "all" || c.id === activeCat).map(c => {
+    const items = ITEMS.filter(it => it.c === c.id && prios.includes(it.p) && !(hideHave && have.has(keyOf(it))))
+      .sort((a,b) => ["must","rec","extra"].indexOf(a.p) - ["must","rec","extra"].indexOf(b.p));
+    if (!items.length) return "";
+    return `<div class="cat"><h3><span class="em">${c.em}</span>${c.name}</h3><div class="grid">${items.map(it => {
+      const k = keyOf(it), h = have.has(k);
+      return `<article class="item${h ? " have" : ""}">
+        <div class="row"><h4>${it.n}</h4><span class="tag ${it.p}">${PLABEL[it.p]}</span></div>
+        <p>${it.d}</p>
+        <div class="act">
+          <label class="have-toggle"><input type="checkbox" data-key="${k}" ${h ? "checked" : ""}> Lo tengo</label>
+          <a class="buy" href="${amz(it.q)}" target="_blank" rel="sponsored nofollow noopener">Ver en Amazon</a>
+        </div></article>`;
+    }).join("")}</div></div>`;
+  }).join("");
+  document.getElementById("catalog").innerHTML = html || `<p class="empty">No hay artículos con estos filtros.</p>`;
+  document.querySelectorAll("[data-key]").forEach(cb => cb.onchange = () => {
+    cb.checked ? have.add(cb.dataset.key) : have.delete(cb.dataset.key);
+    store.set("kit72_have", [...have]);
+    renderCatalog(); renderProgress();
+  });
+}
+
+function renderProgress(){
+  const must = ITEMS.filter(i => i.p === "must");
+  const mustHave = must.filter(i => have.has(keyOf(i))).length;
+  const total = ITEMS.filter(i => have.has(keyOf(i))).length;
+  document.getElementById("barFill").style.width = (mustHave / must.length * 100) + "%";
+  document.getElementById("progressTxt").innerHTML =
+    `<b>${mustHave}/${must.length}</b> imprescindibles · ${total}/${ITEMS.length} en total`;
+}
+
+document.querySelectorAll("[data-p], #hideHave").forEach(x => x.onchange = renderCatalog);
+document.getElementById("statItems").textContent = ITEMS.length;
+document.getElementById("yr").textContent = new Date().getFullYear();
+renderCalc(); renderChips(); renderCatalog(); renderProgress();
+</script>
+</body>
+</html>
