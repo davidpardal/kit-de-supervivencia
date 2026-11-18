@@ -20,14 +20,7 @@
 <meta name="twitter:image" content="https://kitde72h.eu/og.jpg">
 <meta name="theme-color" content="#e8590c">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPZEHHCG1J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MPZEHHCG1J');
-</script>
+<!-- GA4 temporalmente desactivado hasta implementar consentimiento y política de cookies -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebSite","name":"Kit de 72h","url":"https://kitde72h.eu/","inLanguage":"es"},
@@ -387,7 +380,7 @@ function renderCalc(){
   document.getElementById("results").innerHTML = `
     <div class="res"><div class="k">Agua total</div><div class="v">${fmt(agua)} L</div>
       <div class="d">${fmt(bebida,1)} L mínimo orientativo para beber · 3 L/persona/día para beber y cocinar · ≈ ${garrafas} garrafas de 8 L</div>
-      <a href="${amz("bidon agua plegable grifo 10 litros")}" target="_blank" rel="sponsored nofollow noopener">Ver bidones →</a></div>
+      <a href="${amz("bidon agua plegable grifo 10 litros")}" target="_blank" rel="sponsored nofollow noopener">Ver bidones · enlace afiliado →</a></div>
     <div class="res"><div class="k">Calorías</div><div class="v">${fmt(kcal/1000,1)}k</div>
       <div class="d">kcal para ${s.dias} días · conservas, legumbres cocidas, frutos secos</div>
       <a href="${amz("racion emergencia larga duracion")}" target="_blank" rel="sponsored nofollow noopener">Ver raciones →</a></div>
@@ -435,7 +428,7 @@ function renderCatalog(){
         <p>${it.d}</p>
         <div class="act">
           <label class="have-toggle"><input type="checkbox" data-key="${k}" ${h ? "checked" : ""}> Lo tengo</label>
-          <a class="buy" href="${amz(it.q)}" target="_blank" rel="sponsored nofollow noopener">Ver en Amazon</a>
+          <a class="buy" href="${amz(it.q)}" target="_blank" rel="sponsored nofollow noopener">Ver en Amazon · enlace afiliado</a>
         </div></article>`;
     }).join("")}</div></div>`;
   }).join("");
