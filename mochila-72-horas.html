@@ -29,14 +29,7 @@
 {"@type":"Question","name":"¿Merece la pena comprarla ya hecha?","acceptedAnswer":{"@type":"Answer","text":"Solo como punto de partida. Las mochilas ya montadas no traen tu medicación, tus documentos ni ropa de tu talla, y a veces incluyen cosas que no necesitas. Si la compras, ábrela, revísala y complétala con lo personal."}},
 {"@type":"Question","name":"¿Cada cuánto hay que revisar la mochila?","acceptedAnswer":{"@type":"Answer","text":"Revísala periódicamente y después de cada uso: comprueba fechas de caducidad, estado de envases, pilas, batería externa, medicación y ropa según la estación. Puedes fijar una revisión semestral como recordatorio práctico."}}]}
 </script>
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPZEHHCG1J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MPZEHHCG1J');
-</script>
+<!-- GA4 temporalmente desactivado hasta implementar consentimiento y política de cookies -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -290,7 +283,7 @@ table.blocks{width:100%;border-collapse:collapse;background:var(--card);border:1
 <script>
 const TAG = "14140b-21";
 const amz = q => "https://www.amazon.es/s?k=" + encodeURIComponent(q) + "&tag=" + TAG;
-document.querySelectorAll("a[data-q]").forEach(a => { a.href = amz(a.dataset.q); });
+document.querySelectorAll("a[data-q]").forEach(a => { a.href = amz(a.dataset.q); a.textContent = "Ver en Amazon · enlace afiliado →"; });
 document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 </body>
