@@ -70,6 +70,9 @@ h1,h2,h3{font-family:Archivo,Inter,sans-serif;line-height:1.15;margin:0}
 .stat .l{font-size:13px;color:var(--muted)}
 .cta{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px}
 .cta:hover{background:#000}
+.cta-secondary{margin-left:8px;background:#fff;color:var(--ink);border:1px solid var(--line)}
+.cta-secondary:hover{background:var(--accent-soft)}
+@media(max-width:520px){.cta-secondary{margin-left:0;margin-top:10px}}
 
 /* sections */
 section{padding:36px 0}
@@ -177,6 +180,7 @@ footer p{margin:6px 0;max-width:80ch}
       <div class="stat"><div class="n" id="statItems">—</div><div class="l">artículos en la lista</div></div>
     </div>
     <a class="cta" href="#calculadora">Calcula tu kit →</a>
+    <a class="cta cta-secondary" href="comparativa-kits-emergencia.html">Ver comparativa de kits preparados →</a>
   </div>
 
   <!-- Calculadora -->
@@ -208,6 +212,7 @@ footer p{margin:6px 0;max-width:80ch}
         <div>
           <h2>La lista completa</h2>
           <p>Marca lo que ya tienes. Se guarda en este navegador.</p>
+          <p class="note">¿Prefieres comprar una mochila ya preparada? <a href="comparativa-kits-emergencia.html">Compara qué incluyen realmente los kits de 72 horas →</a></p>
         </div>
       </div>
 
