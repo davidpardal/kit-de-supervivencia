@@ -26,7 +26,14 @@
 @media print{body{background:white;font-size:11pt}.wrap{max-width:none;padding:0}.top,.actions,.no-print,footer{display:none!important}.hero{padding:0}.panel,.group{break-inside:avoid;border:1px solid #bbb}.checklist{grid-template-columns:1fr 1fr}a{color:inherit;text-decoration:none}input{print-color-adjust:exact}}
 @media(max-width:600px){header nav a:first-child{display:none}}
 </style>
-<script src="/consent.js" defer></script>
+<!-- GA4 con Consent Mode v2: analitica solo con tu consentimiento -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+try{if(localStorage.getItem('kit-consent')==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPZEHHCG1J"></script>
+<script>gtag('js',new Date());gtag('config','G-MPZEHHCG1J');</script>
 </head>
 <body>
 <header class="top"><div class="wrap"><a class="logo" href="/">Kit de <b>72h</b></a><nav><a href="/#calculadora">Calculadora</a><a href="/mochila-72-horas.html">Mochila</a><a href="/comparativa-kits-emergencia.html">Comparativa</a><a href="/que-hacer-ante-un-apagon.html">Apagón</a></nav></div></header>
@@ -98,6 +105,26 @@
 <p class="note">Esta página ofrece orientación general y no sustituye planes municipales, instrucciones de Protección Civil ni las indicaciones de los servicios de emergencia. En una emergencia real, sigue siempre las instrucciones oficiales.</p>
 <section class="related" aria-labelledby="sigue-leyendo"><h2 id="sigue-leyendo">Sigue leyendo</h2><ul><li><a href="/">Calculadora y lista del kit</a>: Cuánta agua, comida y batería necesita tu casa, y la lista completa por prioridad.</li><li><a href="/almacenar-agua-emergencia.html">Cómo almacenar agua en casa</a>: Cuánta guardar, en qué envases y cada cuánto renovarla.</li><li><a href="/comida-emergencia.html">Comida de emergencia</a>: Qué alimentos aguantan sin nevera ni cocina, y cuántos hacen falta.</li><li><a href="/radio-emergencia.html">Radio de emergencia</a>: Qué radio comprar para informarte sin luz ni internet.</li><li><a href="/bateria-externa-apagon.html">Batería externa para un apagón</a>: Cuántos mAh necesitas de verdad, con calculadora.</li><li><a href="/mochila-72-horas.html">Mochila de 72 horas</a>: Qué llevar si tienes que salir de casa, con peso y coste orientativos.</li><li><a href="/comparativa-kits-emergencia.html">Comparativa de kits preparados</a>: Qué incluyen de verdad los kits de 72 horas y qué hay que añadirles.</li><li><a href="/que-hacer-ante-un-apagon.html">Qué hacer ante un apagón</a>: Antes, durante y después de un corte de luz.</li></ul></section>
 </main>
-<footer><div class="wrap"><nav class="foot-guides" aria-label="Guías" style="display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px;font-size:14px;font-weight:600"><a href="/">Calculadora y lista del kit</a><a href="/almacenar-agua-emergencia.html">Cómo almacenar agua en casa</a><a href="/comida-emergencia.html">Comida de emergencia</a><a href="/radio-emergencia.html">Radio de emergencia</a><a href="/bateria-externa-apagon.html">Batería externa para un apagón</a><a href="/mochila-72-horas.html">Mochila de 72 horas</a><a href="/comparativa-kits-emergencia.html">Comparativa de kits preparados</a><a href="/que-hacer-ante-un-apagon.html">Qué hacer ante un apagón</a></nav><p>© <span id="yr"></span> Kit de 72h · kitde72h.eu</p><p>Guía independiente. No está vinculada a ninguna administración pública.</p><p style="margin-top:10px"><a href="/politica-cookies.html">Política de cookies</a> · <a href="#" onclick="k72OpenCookies();return false">Cambiar preferencias de cookies</a></p></div></footer>
+<footer><div class="wrap"><nav class="foot-guides" aria-label="Guías" style="display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px;font-size:14px;font-weight:600"><a href="/">Calculadora y lista del kit</a><a href="/almacenar-agua-emergencia.html">Cómo almacenar agua en casa</a><a href="/comida-emergencia.html">Comida de emergencia</a><a href="/radio-emergencia.html">Radio de emergencia</a><a href="/bateria-externa-apagon.html">Batería externa para un apagón</a><a href="/mochila-72-horas.html">Mochila de 72 horas</a><a href="/comparativa-kits-emergencia.html">Comparativa de kits preparados</a><a href="/que-hacer-ante-un-apagon.html">Qué hacer ante un apagón</a></nav><p><a href="/politica-privacidad-cookies.html">Privacidad y cookies</a> · © <span id="yr"></span> Kit de 72h · kitde72h.eu</p><p>Guía independiente. No está vinculada a ninguna administración pública.</p></div></footer>
 <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+<div id="kit-consent" hidden style="position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:#1b1d1f;color:#f6f4ef;border-radius:12px;padding:14px 16px;box-shadow:0 8px 30px rgba(0,0,0,.35);font-size:14px;line-height:1.5">
+<p style="margin:0 0 10px">Usamos cookies de analítica (Google Analytics) solo si aceptas, para saber qué guías ayudan más. Algunos enlaces a Amazon son de afiliado. <a href="/politica-privacidad-cookies.html" style="color:#ffb27a">Política de privacidad y cookies</a></p>
+<button id="kit-consent-yes" style="background:#e8590c;color:#fff;border:0;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button>
+<button id="kit-consent-no" style="background:transparent;color:#f6f4ef;border:1px solid #5f646b;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;margin-left:8px">Rechazar</button>
+</div>
+<script>
+(function(){
+ function choice(){try{return localStorage.getItem('kit-consent');}catch(e){return null;}}
+ var b=document.getElementById('kit-consent');
+ if(!choice()&&b){b.hidden=false;}
+ function set(v){try{localStorage.setItem('kit-consent',v);}catch(e){} if(window.gtag){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});} if(b){b.hidden=true;}}
+ var y=document.getElementById('kit-consent-yes'),n=document.getElementById('kit-consent-no');
+ if(y){y.addEventListener('click',function(){set('granted');});}
+ if(n){n.addEventListener('click',function(){set('denied');});}
+ document.addEventListener('click',function(ev){
+  var a=ev.target&&ev.target.closest?ev.target.closest('a[href*="amazon."]'):null;
+  if(a&&window.gtag){gtag('event','amazon_click',{'link_url':a.href,'link_text':(a.textContent||'').trim().slice(0,80),'page_path':location.pathname});}
+ });
+})();
+</script>
 </body></html>

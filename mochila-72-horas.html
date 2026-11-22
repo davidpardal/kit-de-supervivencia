@@ -29,6 +29,7 @@
 {"@type":"Question","name":"¿Merece la pena comprarla ya hecha?","acceptedAnswer":{"@type":"Answer","text":"Solo como punto de partida. Las mochilas ya montadas no traen tu medicación, tus documentos ni ropa de tu talla, y a veces incluyen cosas que no necesitas. Si la compras, ábrela, revísala y complétala con lo personal."}},
 {"@type":"Question","name":"¿Cada cuánto hay que revisar la mochila?","acceptedAnswer":{"@type":"Answer","text":"Revísala periódicamente y después de cada uso: comprueba fechas de caducidad, estado de envases, pilas, batería externa, medicación y ropa según la estación. Puedes fijar una revisión semestral como recordatorio práctico."}}]}
 </script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -166,7 +167,14 @@ table.blocks{width:100%;border-collapse:collapse;background:var(--card);border:1
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"Mochila de emergencia 72 horas: lista, peso y coste","description":"Qué llevar en una mochila de emergencia de 72 horas: lista completa, peso orientativo, coste y recomendaciones oficiales.","mainEntityOfPage":{"@type":"WebPage","@id":"https://kitde72h.eu/mochila-72-horas.html"},"url":"https://kitde72h.eu/mochila-72-horas.html","inLanguage":"es-ES","publisher":{"@type":"Organization","name":"Kit de 72h","url":"https://kitde72h.eu/"}}
 </script>
-<script src="/consent.js" defer></script>
+<!-- GA4 con Consent Mode v2: analitica solo con tu consentimiento -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+try{if(localStorage.getItem('kit-consent')==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPZEHHCG1J"></script>
+<script>gtag('js',new Date());gtag('config','G-MPZEHHCG1J');</script>
 </head>
 <body>
 
@@ -284,8 +292,8 @@ table.blocks{width:100%;border-collapse:collapse;background:var(--card);border:1
   <div class="wrap"><nav class="foot-guides" aria-label="Guías" style="display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px;font-size:14px;font-weight:600"><a href="/">Calculadora y lista del kit</a><a href="/almacenar-agua-emergencia.html">Cómo almacenar agua en casa</a><a href="/comida-emergencia.html">Comida de emergencia</a><a href="/radio-emergencia.html">Radio de emergencia</a><a href="/bateria-externa-apagon.html">Batería externa para un apagón</a><a href="/comparativa-kits-emergencia.html">Comparativa de kits preparados</a><a href="/plan-familiar-emergencia.html">Plan familiar de emergencia</a><a href="/que-hacer-ante-un-apagon.html">Qué hacer ante un apagón</a></nav>
     <p><b>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</b> Comprar a través de estos enlaces no te cuesta más y ayuda a mantener esta web.</p>
     <p>Esta web es informativa y no está vinculada a Protección Civil ni a ninguna administración. Para instrucciones oficiales en una emergencia, sigue siempre a las autoridades y llama al 112.</p>
-    <p>© <span id="yr"></span> Kit de 72h · kitde72h.eu</p>
-  <p style="margin-top:10px"><a href="/politica-cookies.html">Política de cookies</a> · <a href="#" onclick="k72OpenCookies();return false">Cambiar preferencias de cookies</a></p></div>
+    <p><a href="/politica-privacidad-cookies.html">Privacidad y cookies</a> · © <span id="yr"></span> Kit de 72h · kitde72h.eu</p>
+  </div>
 </footer>
 
 <script>
@@ -293,6 +301,26 @@ const TAG = "14140b-21";
 const amz = q => "https://www.amazon.es/s?k=" + encodeURIComponent(q) + "&tag=" + TAG;
 document.querySelectorAll("a[data-q]").forEach(a => { a.href = amz(a.dataset.q); a.textContent = "Ver en Amazon · enlace afiliado →"; });
 document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+<div id="kit-consent" hidden style="position:fixed;left:12px;right:12px;bottom:12px;z-index:60;background:#1b1d1f;color:#f6f4ef;border-radius:12px;padding:14px 16px;box-shadow:0 8px 30px rgba(0,0,0,.35);font-size:14px;line-height:1.5">
+<p style="margin:0 0 10px">Usamos cookies de analítica (Google Analytics) solo si aceptas, para saber qué guías ayudan más. Algunos enlaces a Amazon son de afiliado. <a href="/politica-privacidad-cookies.html" style="color:#ffb27a">Política de privacidad y cookies</a></p>
+<button id="kit-consent-yes" style="background:#e8590c;color:#fff;border:0;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button>
+<button id="kit-consent-no" style="background:transparent;color:#f6f4ef;border:1px solid #5f646b;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;margin-left:8px">Rechazar</button>
+</div>
+<script>
+(function(){
+ function choice(){try{return localStorage.getItem('kit-consent');}catch(e){return null;}}
+ var b=document.getElementById('kit-consent');
+ if(!choice()&&b){b.hidden=false;}
+ function set(v){try{localStorage.setItem('kit-consent',v);}catch(e){} if(window.gtag){gtag('consent','update',{'analytics_storage':v==='granted'?'granted':'denied'});} if(b){b.hidden=true;}}
+ var y=document.getElementById('kit-consent-yes'),n=document.getElementById('kit-consent-no');
+ if(y){y.addEventListener('click',function(){set('granted');});}
+ if(n){n.addEventListener('click',function(){set('denied');});}
+ document.addEventListener('click',function(ev){
+  var a=ev.target&&ev.target.closest?ev.target.closest('a[href*="amazon."]'):null;
+  if(a&&window.gtag){gtag('event','amazon_click',{'link_url':a.href,'link_text':(a.textContent||'').trim().slice(0,80),'page_path':location.pathname});}
+ });
+})();
 </script>
 </body>
 </html>
