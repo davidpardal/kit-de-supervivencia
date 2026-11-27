@@ -32,7 +32,7 @@
 <main class="wrap">
 <div class="hero"><span class="eyebrow">Herramienta gratuita · Tu información se queda en tu dispositivo</span><h1>Tu plan familiar de emergencia</h1><p class="lead">Acordad qué hacer antes de que ocurra una emergencia. Rellena los apartados, genera el plan y guárdalo en papel en un lugar conocido por todos.</p>
 <div class="notice"><strong>Importante</strong>Este documento es una ayuda para organizaros, no sustituye las instrucciones de Protección Civil. En España, llama al 112 cuando necesites asistencia urgente y sigue siempre las indicaciones oficiales. No os desplacéis a un punto de encuentro si hacerlo no es seguro.</div></div>
-<form id="planner">
+<form id="planner" data-analytics-submit="family_plan_generate">
 <section class="section"><div class="section-head"><span class="num">1</span><div><h2>Quiénes formáis la unidad familiar</h2><p class="muted">Incluid a todas las personas que deben estar contempladas en el plan.</p></div></div><div class="fields">
 <div class="field full"><label for="household">Nombre del hogar o familia (opcional)</label><input id="household" placeholder="Ej. Familia García"></div>
 <div class="field"><label for="adults">Número de adultos</label><input id="adults" type="number" min="0" max="20" value="2"></div>
@@ -68,9 +68,9 @@
 <div class="field full"><label for="shutoff">Cómo cortar suministros (si es seguro y sabéis hacerlo)</label><textarea id="shutoff" placeholder="Ubicación de llaves de agua, gas y cuadro eléctrico. No manipuléis instalaciones si hay riesgo."></textarea></div>
 <div class="field full"><label for="notes">Instrucciones acordadas / notas</label><textarea id="notes" placeholder="Qué hacer si alguien está en el colegio, trabajo o fuera de casa."></textarea></div>
 </div></section>
-<div class="actions"><button class="btn primary" type="submit">Generar mi plan familiar</button><button class="btn light" type="button" id="save">Guardar en este dispositivo</button><button class="btn light" type="button" id="clear">Borrar formulario</button></div>
+<div class="actions"><button class="btn primary" type="submit">Generar mi plan familiar</button><button class="btn light" type="button" id="save" data-analytics-event="family_plan_save">Guardar en este dispositivo</button><button class="btn light" type="button" id="clear">Borrar formulario</button></div>
 <p class="privacy">Privacidad: los datos se guardan únicamente en el almacenamiento local de este navegador cuando eliges guardarlos. No se envían a Kit de 72h. Si compartes el dispositivo, evita introducir datos sensibles y borra el formulario al terminar.</p>
-<section class="result" id="result" aria-live="polite"><h2 id="resultTitle">Plan familiar</h2><p class="small">Revisadlo juntos, imprimid una copia y actualizadlo cuando cambien vuestros horarios o necesidades.</p><pre id="output"></pre><div class="actions"><button class="btn primary" type="button" id="print">Imprimir / Guardar como PDF</button><button class="btn light" type="button" id="download">Descargar .txt</button></div></section>
+<section class="result" id="result" aria-live="polite"><h2 id="resultTitle">Plan familiar</h2><p class="small">Revisadlo juntos, imprimid una copia y actualizadlo cuando cambien vuestros horarios o necesidades.</p><pre id="output"></pre><div class="actions"><button class="btn primary" type="button" id="print" data-analytics-event="family_plan_print">Imprimir / Guardar como PDF</button><button class="btn light" type="button" id="download" data-analytics-event="family_plan_download">Descargar .txt</button></div></section>
 </form>
 </main>
 <footer><div class="wrap"><p><b>Kit de 72h</b> · Información práctica para preparar tu hogar.</p><p>En una emergencia, sigue a las autoridades y llama al 112 si necesitas asistencia urgente. Esta herramienta es orientativa y no está vinculada a ninguna administración.</p><p><a href="/politica-cookies.html">Política de cookies</a> · <a href="/">Volver a la portada</a></p><p>© <span id="year"></span> Kit de 72h</p></div></footer>

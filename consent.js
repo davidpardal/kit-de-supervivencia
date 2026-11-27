@@ -34,6 +34,26 @@
     });
   }, true);
 
+  // Eventos de uso de herramientas. Solo se envían tras aceptar analítica.
+  // No se leen ni transmiten valores de formularios, nombres, teléfonos o datos familiares.
+  document.addEventListener("click", function (ev) {
+    var control = ev.target.closest && ev.target.closest("[data-analytics-event]");
+    if (!control || !loaded) return;
+    var eventName = control.getAttribute("data-analytics-event");
+    if (!eventName) return;
+    var params = { page_path: location.pathname, transport_type: "beacon" };
+    var field = control.getAttribute("data-analytics-field");
+    if (field) params.control_field = field;
+    gtag("event", eventName, params);
+  }, true);
+
+  document.addEventListener("submit", function (ev) {
+    var form = ev.target;
+    var eventName = form && form.getAttribute && form.getAttribute("data-analytics-submit");
+    if (!eventName || !loaded) return;
+    gtag("event", eventName, { page_path: location.pathname, transport_type: "beacon" });
+  }, true);
+
   var css = "#k72-cookies{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:560px;margin:0 auto;background:#1b1d1f;color:#f6f4ef;border-radius:14px;padding:16px 18px;font:14px/1.5 Inter,system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.25)}" +
     "#k72-cookies p{margin:0 0 12px}#k72-cookies a{color:#ffb98c}" +
     "#k72-cookies .b{display:flex;gap:10px;flex-wrap:wrap}#k72-cookies button{flex:1 1 140px;min-height:44px;border-radius:10px;border:1px solid #f6f4ef;font:600 15px Inter,system-ui,sans-serif;cursor:pointer;background:transparent;color:#f6f4ef}" +
